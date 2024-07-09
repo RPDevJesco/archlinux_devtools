@@ -29,7 +29,13 @@ echo 'export GOROOT=/usr/lib/go' >> ~/.bashrc
 echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bashrc
 
 # Install additional development tools
-sudo pacman -S --noconfirm cmake gdb valgrind bash-completion npm yarn postgresql mysql sqlite sed awk curl wget man-db man-pages htop docker docker-compose python-virtualenv nodejs typescript boost qt5 gtk3
+sudo pacman -S --noconfirm cmake gdb valgrind bash-completion npm yarn postgresql mysql sqlite sed awk curl wget man-db man-pages htop docker docker-compose python-virtualenv nodejs typescript boost qt5 qt6 gtk3
+
+# Install Flatpak and PackageKit
+sudo pacman -S --noconfirm flatpak packagekit
+
+# Add Flatpak remote repository
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Install JetBrains Toolbox and VSCode
 yay -S --noconfirm jetbrains-toolbox visual-studio-code-bin
