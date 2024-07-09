@@ -21,8 +21,8 @@ sudo pacman -S --noconfirm ruby gcc nasm python jdk-openjdk go rust dotnet-sdk d
 # Install additional development tools
 sudo pacman -S --noconfirm cmake gdb valgrind bash-completion npm yarn postgresql mysql sqlite sed awk curl wget man-db man-pages htop docker docker-compose python-virtualenv nodejs typescript boost qt5 gtk3
 
-# Install IDEs (using yay for AUR packages)
-yay -S --noconfirm webstorm rustrover clion pycharm-professional rider rubymine goland intellij-idea-ultimate visual-studio-code-bin
+# Install JetBrains Toolbox and VSCode
+yay -S --noconfirm jetbrains-toolbox visual-studio-code-bin
 
 # Install pip and pipenv
 sudo pacman -S --noconfirm python-pip
@@ -49,4 +49,5 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 sudo pacman -Syu --noconfirm
 
 echo "Installation complete! Please log out and log back in for all changes to take effect."
+echo "After logging back in, launch JetBrains Toolbox to install your preferred IDEs."
 echo "Don't forget to configure your IDEs and tools as needed."
