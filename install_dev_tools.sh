@@ -14,7 +14,9 @@ sudo pacman -S --noconfirm base-devel git
 
 # Install yay (AUR helper)
 sudo pacman -S --noconfirm --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
+if [ ! -d "yay" ]; then
+    git clone https://aur.archlinux.org/yay.git
+fi
 cd yay
 makepkg -si --noconfirm
 cd ..
@@ -32,7 +34,7 @@ echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bashrc
 sudo pacman -S --noconfirm cmake gdb valgrind bash-completion npm yarn postgresql mysql sqlite sed awk curl wget man-db man-pages htop docker docker-compose python-virtualenv nodejs typescript boost qt5 qt6 gtk3
 
 # Install Flatpak and PackageKit
-sudo pacman -S --noconfirm flatpak packagekit
+sudo pacman -S --noconfirm flatpak packagekit-qt5
 
 # Add Flatpak remote repository
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -57,10 +59,10 @@ echo 'export PATH="$HOME/scripts:$PATH"' >> ~/.bashrc
 
 # Install additional useful tools
 sudo pacman -S --noconfirm neovim tmux zsh
-
+curl -f https://zed.dev/install.sh | sh
 # Set up Oh My Zsh (optional but recommended)
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-source ~/.zshrc
+source ~/.zshrc || echo "Please restart your terminal or log back in to apply Zsh changes."
 
 # Locale and timezone setup
 sudo ln -sf /usr/share/zoneinfo/US/Chicago /etc/localtime
